@@ -28,7 +28,15 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
+```python
+for i in range(5):
+	print('hello')
+```
+witam
+```javascript
+const array = [1, 2, 3]
+console.log(array.slice(2))
+```
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
