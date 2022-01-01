@@ -1,0 +1,10 @@
+.content {
+	width: 1300px;
+	padding: 3rem;
+	margin: auto;
+}
+
+.landing-box {
+	display: flex;
+	justify-content: space-around;
+}

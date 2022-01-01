@@ -1,5 +1,5 @@
 .navbar {
-	max-width: 1000px;
+	max-width: 1300px;
 	display: flex;
 	padding: .5rem;
 	position: sticky;
@@ -7,7 +7,7 @@
 	align-items: center;
 
 	background-color: rgb(46, 62, 75);
-	box-shadow: 0 0 .5rem black;
+	box-shadow: 0 0 1rem #1b1b1b;
 	border-radius: 0 0 12px 12px;
 }
 

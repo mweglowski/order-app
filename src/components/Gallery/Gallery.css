@@ -1,0 +1,22 @@
+.gallery {
+	width: fit-content;
+	height: 500px;
+	position: relative;
+
+	box-shadow: 0 0 1rem #1b1b1b;
+	border-radius: 12px;
+}
+
+.scattered-tablets {
+	height: 500px;
+	
+	opacity: 0.3;
+	border-radius: 12px;
+}
+
+.text {
+	width: 50%;
+	position: absolute;
+	left: 5%;
+	top: 5%;
+}
