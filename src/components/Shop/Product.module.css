@@ -1,0 +1,14 @@
+.product {
+	display: flex;
+	flex-direction: column;
+	width: 12em;
+	height: 12em;
+	margin: 1rem;
+	padding: 1rem;
+	align-items: center;
+	justify-content: space-around;
+
+	background-color: #2b3946;
+	box-shadow: 0 0 .5rem #171e25;
+	border-radius: 12px;
+}

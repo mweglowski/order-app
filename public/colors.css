@@ -1,7 +1,13 @@
 .colors {
+	/* Body */
+	color: #222e38;
+
 	/* Cards */
 	color: #2e3e4b;
 
 	/* Light blue */
 	color: #06b5e0;
+
+	/* testing */
+	color: #5e768d;
 }

@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar/Navbar";
 import Bargain from "./components/Bargain/Bargain";
 import Gallery from "./components/Gallery/Gallery";
+import Shop from "./components/Shop/Shop";
 import "./App.css";
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
           <Bargain />
           <Gallery />
         </div>
+        <Shop />
       </div>
     </>
   );
