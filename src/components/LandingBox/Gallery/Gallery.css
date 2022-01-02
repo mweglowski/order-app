@@ -1,0 +1,36 @@
+.gallery {
+	width: fit-content;
+	height: fit-content;
+	position: relative;
+
+	box-shadow: 0 0 1rem #1b1b1b;
+	border-radius: 12px;
+}
+
+.image {
+	width: 50vw;
+	height: auto;
+	
+	opacity: 0.3;
+	border-radius: 12px;
+}
+
+.text {
+	width: 70%;
+	position: absolute;
+	left: 5%;
+	top: 5%;
+}
+
+@media screen and (max-width: 1000px) {
+	.image {
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 1500px) {
+	.image {
+		width: fit-content;
+		height: 500px;
+	}
+}

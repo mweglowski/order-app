@@ -1,5 +1,5 @@
-import Card from "../UI/Card";
-import BrainPill from "../../images/brain-pill.jpg";
+import Card from "../../UI/Card";
+import BrainPill from "../../../images/brain-pill.jpg";
 import classes from "./Bargain.module.css";
 
 const Bargain = () => {

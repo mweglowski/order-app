@@ -1,44 +1,71 @@
 import { React, useState } from "react";
 
 import Card from "../UI/Card";
+import { ReactComponent as InfoSvg } from "../../images/info.svg";
 import { ReactComponent as PillSvg } from "../../images/pill.svg";
+import { ReactComponent as SyrupSvg } from "../../images/syrup.svg";
 
-import classes from "./Product.module.css";
+import "./Product.css";
 
-const Product = () => {
+const Product = (props) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const mouseEnterHandler = () => {
-    console.log('enter')
     setIsHovered(true);
   };
 
   const mouseLeaveHandler = () => {
-    console.log('out')
     setIsHovered(false);
   };
 
-  // const changeProductStyle = () => {
-  // 	console.log('hovered')
-  // }
+  const hoverBoxTopValue = isHovered ? 0 : "100%";
+  // let pillSvgStyle = {
+  //   opacity: 1,
+  // };
 
-  let pillSvgStyle = {
-    width: "50px",
-    fill: "#222e38",
-    transform: "rotate(135deg)",
-  };
+  // let syrupSvgStyle = {
+  //   opacity: 1,
+  // };
+
+  // let amountStyle = {
+  //   opacity: 1,
+  // };
+
+  // if (isHovered) {
+  //   pillSvgStyle = { ...pillSvgStyle, opacity: 0.1 };
+  //   syrupSvgStyle = { ...syrupSvgStyle, opacity: 0.1 };
+  //   amountStyle.opacity = 0.1;
+  // }
 
   return (
     <div
-      className={classes.product}
+      className="product"
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}
     >
-      {isHovered && (
-        <div className={classes["product-on-hover-box"]}>hovering</div>
-      )}
-      <PillSvg style={pillSvgStyle} />
-      <div>Vitamine C</div>
+      <InfoSvg className="product-info-icon" />
+      {isHovered && <div style={{top: hoverBoxTopValue}} className="product-on-hover-box">{props.desc}</div>}
+      <div className="product-icon-box">
+        {props.type === "pills" ? (
+          <PillSvg
+            className="product-pill-icon"
+            //  style={pillSvgStyle}
+          />
+        ) : (
+          <SyrupSvg
+            className="product-syrup-icon"
+            // style={syrupSvgStyle}
+          />
+        )}
+      </div>
+      <div className="product-name">{props.name}</div>
+      <div className="product-price">{props.price}</div>
+      <div
+        className="product-amount"
+        // style={amountStyle}
+      >
+        {props.amount}
+      </div>
     </div>
   );
 };

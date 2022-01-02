@@ -1,0 +1,14 @@
+.landing-box {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 2rem;
+}
+
+@media screen and (max-width: 1000px) {
+	.landing-box {
+		flex-direction: column-reverse;
+		gap: 3rem;
+	}
+}
+

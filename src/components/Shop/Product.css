@@ -1,0 +1,80 @@
+.product {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 12em;
+	height: 12em;
+	margin: 1rem;
+	padding: 1rem;
+	align-items: center;
+	justify-content: space-around;
+
+	background-color: #2b3946;
+	box-shadow: 0 0 .5rem #171e25;
+	border-radius: 12px;
+	transition: .5s;
+	overflow: hidden;
+}
+
+.product-on-hover-box {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+	padding: .5em;
+
+	background-color: rgb(31, 42, 59);
+	border-radius: 12px;
+	color: lightblue;
+	opacity: .8;
+	transition: .5s;
+}
+
+/* ICONS */
+.product-info-icon {
+	width: 1.5rem;
+	position: absolute;
+	left: 3%;
+	top: 3%;
+
+	fill: lightblue;
+}
+
+.product-pill-icon {
+	width: 50px;
+	fill: lightblue;
+	transform: rotate(135deg);
+}
+
+.product-syrup-icon {
+	width: 50px;
+	fill: lightblue;
+	transform: rotate(45deg);
+}
+
+.product-icon-box {
+	position: relative;
+}
+
+.product-amount {
+	position: absolute;
+	left: 3%;
+	bottom: 3%;
+
+	color: lightblue;
+}
+
+.product-name {
+	font-size: 1.1em;
+	color: lightblue;
+}
+
+.product-price {
+	font-size: 1.3em;
+}
+
+
