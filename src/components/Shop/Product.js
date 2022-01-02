@@ -8,18 +8,19 @@ import classes from "./Product.module.css";
 const Product = () => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const productHoverHandler = () => {
+  const mouseEnterHandler = () => {
+    console.log('enter')
     setIsHovered(true);
-		changeProductStyle()
   };
 
-	const changeProductStyle = () => {
-		console.log('hovered')
-	}
+  const mouseLeaveHandler = () => {
+    console.log('out')
+    setIsHovered(false);
+  };
 
-  let productStyle = {
-		backgroundColor: "blue"
-	};
+  // const changeProductStyle = () => {
+  // 	console.log('hovered')
+  // }
 
   let pillSvgStyle = {
     width: "50px",
@@ -30,9 +31,12 @@ const Product = () => {
   return (
     <div
       className={classes.product}
-      style={productStyle}
-      onMouseEnter={productHoverHandler}
+      onMouseEnter={mouseEnterHandler}
+      onMouseLeave={mouseLeaveHandler}
     >
+      {isHovered && (
+        <div className={classes["product-on-hover-box"]}>hovering</div>
+      )}
       <PillSvg style={pillSvgStyle} />
       <div>Vitamine C</div>
     </div>

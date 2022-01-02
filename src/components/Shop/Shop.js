@@ -6,7 +6,8 @@ import classes from './Shop.module.css'
 const Shop = () => {
 	return (
 		<Card id="shop" className={classes.shop}>
-			<div>Shop</div>
+			<div className={classes['section-title']}>Our Products</div>
+			<hr />
 			<Products />
 		</Card>
 	)

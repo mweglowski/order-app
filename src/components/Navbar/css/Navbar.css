@@ -33,7 +33,10 @@
 }
 
 .title {
+  margin-left: .2rem;
   font-size: 1.3rem;
+  text-decoration: none;
+  text-shadow: 0 0 .1em #06b5e0;
   -webkit-transition: .2s;
   transition: .2s;
 }

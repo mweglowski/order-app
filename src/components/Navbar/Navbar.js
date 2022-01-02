@@ -1,4 +1,4 @@
-import "./Navbar.css";
+import "./css/Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,14 +8,14 @@ const Navbar = () => {
       {/* icon & title */}
       <div className="title-box">
         <div className="title-icon">🦠</div>
-        <div className="title">Medreact</div>
+        <a href="root" className="title">Medreact</a>
       </div>
 
       {/* nav-links */}
       <div className="nav-links">
-        <a href="">About</a>
-        <a href="">Shop</a>
-        <a href="">Contact</a>
+        <a href="about">About</a>
+        <a href="shop">Shop</a>
+        <a href="contact">Contact</a>
       </div>
 
       {/* cart */}
