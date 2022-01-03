@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 
-import Card from "../UI/Card";
+import ProductOnHoverCard from "./ProductOnHoverCard";
 import { ReactComponent as InfoSvg } from "../../images/info.svg";
 import { ReactComponent as PillSvg } from "../../images/pill.svg";
 import { ReactComponent as SyrupSvg } from "../../images/syrup.svg";
@@ -19,23 +19,23 @@ const Product = (props) => {
   };
 
   const hoverBoxTopValue = isHovered ? 0 : "100%";
-  // let pillSvgStyle = {
-  //   opacity: 1,
-  // };
+  let pillSvgStyle = {
+    opacity: 1,
+  };
 
-  // let syrupSvgStyle = {
-  //   opacity: 1,
-  // };
+  let syrupSvgStyle = {
+    opacity: 1,
+  };
 
-  // let amountStyle = {
-  //   opacity: 1,
-  // };
+  let amountStyle = {
+    opacity: 1,
+  };
 
-  // if (isHovered) {
-  //   pillSvgStyle = { ...pillSvgStyle, opacity: 0.1 };
-  //   syrupSvgStyle = { ...syrupSvgStyle, opacity: 0.1 };
-  //   amountStyle.opacity = 0.1;
-  // }
+  if (isHovered) {
+    pillSvgStyle = { ...pillSvgStyle, opacity: 0.1 };
+    syrupSvgStyle = { ...syrupSvgStyle, opacity: 0.1 };
+    amountStyle.opacity = 0.1;
+  }
 
   return (
     <div
@@ -44,26 +44,17 @@ const Product = (props) => {
       onMouseLeave={mouseLeaveHandler}
     >
       <InfoSvg className="product-info-icon" />
-      {isHovered && <div style={{top: hoverBoxTopValue}} className="product-on-hover-box">{props.desc}</div>}
+      {isHovered && <ProductOnHoverCard price={props.price} top={hoverBoxTopValue} />}
       <div className="product-icon-box">
         {props.type === "pills" ? (
-          <PillSvg
-            className="product-pill-icon"
-            //  style={pillSvgStyle}
-          />
+          <PillSvg className="product-pill-icon" style={pillSvgStyle} />
         ) : (
-          <SyrupSvg
-            className="product-syrup-icon"
-            // style={syrupSvgStyle}
-          />
+          <SyrupSvg className="product-syrup-icon" style={syrupSvgStyle} />
         )}
       </div>
       <div className="product-name">{props.name}</div>
       <div className="product-price">{props.price}</div>
-      <div
-        className="product-amount"
-        // style={amountStyle}
-      >
+      <div className="product-amount" style={amountStyle}>
         {props.amount}
       </div>
     </div>

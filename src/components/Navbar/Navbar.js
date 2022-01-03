@@ -1,6 +1,6 @@
-import "./css/Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import "./css/Navbar.css";
 
 const Navbar = () => {
   return (
@@ -21,7 +21,7 @@ const Navbar = () => {
       {/* cart */}
       <div className="cart-box">
         <div>
-          <FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
+          <FontAwesomeIcon icon={faShoppingCart} className="navbar-cart-icon" />
           <div className="new-product-notification"></div>
         </div>
 
