@@ -27,28 +27,3 @@
 	font-size: 1.3rem;
 	color: lightblue;
 }
-
-.product-on-hover-card-add-to-cart-btn {
-	padding: .5rem .8rem;
-
-	background-color: transparent;
-	font-size: 1.1rem;
-	color: lightblue;
-	border: 2px solid lightblue; 
-	border-radius: 50px;
-	transition: .5s;
-}
-.product-on-hover-card-add-to-cart-btn:hover {
-	cursor: pointer;
-	background-color: lightblue;
-	border: 2px solid #222e38;
-	color: #222e38;
-}
-.product-on-hover-card-add-to-cart-btn:hover .product-on-hover-card-plus {
-	color: #222e38;
-}
-
-.product-on-hover-card-plus {
-	font-size: 1.3rem;
-	color: lightblue;
-}
