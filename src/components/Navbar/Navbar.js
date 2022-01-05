@@ -1,6 +1,7 @@
+import NewProductNotification from "./NewProductNotification";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import "./css/Navbar.css";
+import "./Navbar.css";
 
 const Navbar = () => {
   return (
@@ -26,6 +27,7 @@ const Navbar = () => {
         </div>
 
         <p>Cart</p>
+        <NewProductNotification />
       </div>
 
       {/* log in / log out */}

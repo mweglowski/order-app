@@ -1,0 +1,13 @@
+.new-product-notification {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	left: -15%;
+	bottom: 15%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background-color: #06b5e0;
+	border-radius: 50px;
+}
