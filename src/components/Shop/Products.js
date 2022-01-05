@@ -9,12 +9,8 @@ const Products = (props) => {
         return (
           <Product
             key={Math.random()}
-            name={product.name}
-            type={product.type}
-            amount={product.amount}
-            icon={product.icon}
-            desc={product.desc}
-            price={product.price}
+            productData={product}
+            onProductAddToCart={props.onProductAddToCart}
           />
         );
       })}

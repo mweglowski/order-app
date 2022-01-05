@@ -1,9 +1,12 @@
+import { React, useState } from "react";
+
 import Navbar from "./components/Navbar/Navbar";
 import LandingBox from "./components/LandingBox/LandingBox";
 import Shop from "./components/Shop/Shop";
 import "./App.css";
 
 const App = () => {
+  const [productsInCart, setProductsInCart] = useState(0);
   const products = [
     {
       name: "Vitamine C",
@@ -35,12 +38,19 @@ const App = () => {
     },
   ];
 
+  const addProductToCart = (product) => {
+    setProductsInCart((prevState) => {
+      return [product, {...prevState}];
+    });
+    console.log('New item added to the cart!\n', product)
+  };
+
   return (
     <>
       <Navbar />
       <div className="content">
         <LandingBox />
-        <Shop products={products} />
+        <Shop products={products} onProductAddToCart={addProductToCart} />
       </div>
     </>
   );

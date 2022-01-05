@@ -2,7 +2,7 @@ import { React, useRef } from "react";
 
 import "./AddToCartButton.css";
 
-const AddToCartButton = () => {
+const AddToCartButton = (props) => {
 	const buttonRef = useRef()
 
 	const addProductToCart = (event) => {
@@ -15,6 +15,7 @@ const AddToCartButton = () => {
     setTimeout(() => {
       buttonRef.current.textContent = "✔ Success";
     }, 1000);
+    props.onProductAddToCart(props.productData)
   };
 
   return (

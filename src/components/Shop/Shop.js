@@ -8,7 +8,10 @@ const Shop = (props) => {
     <Card id="shop" className={classes.shop}>
       <div className={classes["section-title"]}>Our Products</div>
       <hr />
-      <Products products={props.products} />
+      <Products
+        products={props.products}
+        onProductAddToCart={props.onProductAddToCart}
+      />
     </Card>
   );
 };

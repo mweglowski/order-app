@@ -10,7 +10,10 @@ const ProductOnHoverCard = (props) => {
     <div className="product-on-hover-card" style={{ top: props.top }}>
       <CartSvg className="product-on-hover-card-cart-icon" />
       <div className="product-on-hover-card-price">{props.price}</div>
-      <AddToCartButton />
+      <AddToCartButton
+        productData={props.productData}
+        onProductAddToCart={props.onProductAddToCart}
+      />
     </div>
   );
 };

@@ -44,7 +44,14 @@ const Product = (props) => {
       onMouseLeave={mouseLeaveHandler}
     >
       <InfoSvg className="product-info-icon" />
-      {isHovered && <ProductOnHoverCard price={props.price} top={hoverBoxTopValue} />}
+      {isHovered && (
+        <ProductOnHoverCard
+          price={props.price}
+          top={hoverBoxTopValue}
+          productData={props.productData}
+          onProductAddToCart={props.onProductAddToCart}
+        />
+      )}
       <div className="product-icon-box">
         {props.type === "pills" ? (
           <PillSvg className="product-pill-icon" style={pillSvgStyle} />
@@ -52,8 +59,8 @@ const Product = (props) => {
           <SyrupSvg className="product-syrup-icon" style={syrupSvgStyle} />
         )}
       </div>
-      <div className="product-name">{props.name}</div>
-      <div className="product-price">{props.price}</div>
+      <div className="product-name">{props.productData.name}</div>
+      <div className="product-price">{props.productData.price}</div>
       <div className="product-amount" style={amountStyle}>
         {props.amount}
       </div>
