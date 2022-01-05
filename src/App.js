@@ -6,7 +6,7 @@ import Shop from "./components/Shop/Shop";
 import "./App.css";
 
 const App = () => {
-  const [productsInCart, setProductsInCart] = useState(0);
+  const [productsInCart, setProductsInCart] = useState([]);
   const products = [
     {
       name: "Vitamine C",
@@ -38,16 +38,17 @@ const App = () => {
     },
   ];
 
-  const addProductToCart = (product) => {
+  const addProductToCart = (newProduct) => {
     setProductsInCart((prevState) => {
-      return [product, {...prevState}];
+      console.log(prevState)
+      return [newProduct, ...prevState];
     });
-    console.log('New item added to the cart!\n', product)
+    console.log('New item added to the cart!\n', newProduct)
   };
 
   return (
     <>
-      <Navbar />
+      <Navbar productsInCart={productsInCart} />
       <div className="content">
         <LandingBox />
         <Shop products={products} onProductAddToCart={addProductToCart} />

@@ -1,10 +1,8 @@
 import "./NewProductNotification.css"
 
-const NewProductNotification = () => {
-	const productsInCart = 5
-
+const NewProductNotification = (props) => {
 	return (
-		<div className="new-product-notification">{productsInCart}</div>
+		<div className="new-product-notification">{props.quantity}</div>
 	)
 }
 

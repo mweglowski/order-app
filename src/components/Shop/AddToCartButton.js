@@ -15,7 +15,9 @@ const AddToCartButton = (props) => {
     setTimeout(() => {
       buttonRef.current.textContent = "✔ Success";
     }, 1000);
-    props.onProductAddToCart(props.productData)
+    setTimeout(() => {
+      props.onProductAddToCart(props.productData)
+    }, 2000)
   };
 
   return (

@@ -2,14 +2,17 @@ import NewProductNotification from "./NewProductNotification";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
+import Products from "../Shop/Products";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <div className="navbar">
       {/* icon & title */}
       <div className="title-box">
         <div className="title-icon">🦠</div>
-        <a href="root" className="title">Medreact</a>
+        <a href="root" className="title">
+          Medreact
+        </a>
       </div>
 
       {/* nav-links */}
@@ -23,11 +26,12 @@ const Navbar = () => {
       <div className="cart-box">
         <div>
           <FontAwesomeIcon icon={faShoppingCart} className="navbar-cart-icon" />
-          <div className="new-product-notification"></div>
         </div>
 
         <p>Cart</p>
-        <NewProductNotification />
+        {props.productsInCart.length > 0 && (
+          <NewProductNotification quantity={props.productsInCart.length} />
+        )}
       </div>
 
       {/* log in / log out */}
