@@ -3,6 +3,8 @@ import { React, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import LandingBox from "./components/LandingBox/LandingBox";
 import Shop from "./components/Shop/Shop";
+import Cart from "./components/Cart/Cart";
+
 import "./App.css";
 
 const App = () => {
@@ -40,14 +42,17 @@ const App = () => {
 
   const addProductToCart = (newProduct) => {
     setProductsInCart((prevState) => {
-      console.log(prevState)
+      console.log(prevState);
       return [newProduct, ...prevState];
     });
-    console.log('New item added to the cart!\n', newProduct)
+    console.log("New item added to the cart!\n", newProduct);
   };
 
   return (
     <>
+      {/* Temporary, moving componenets */}
+      <Cart productsInCart={productsInCart} />
+
       <Navbar productsInCart={productsInCart} />
       <div className="content">
         <LandingBox />

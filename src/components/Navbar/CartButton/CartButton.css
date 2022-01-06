@@ -1,0 +1,28 @@
+.cart-box {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: .2rem;
+	margin-right: 2rem;
+	padding: .6rem 1rem;
+	
+	border-radius: 12px;
+	transition: .3s;
+}
+
+.cart-box:hover {
+	background-color: #222e38;
+	color: #06b5e0;
+	border-radius: 12px;
+	cursor: pointer;
+}
+.cart-box:hover :nth-child(1), .cart-box:hover :nth-child(2) {
+	color: #06b5e0;
+	transition: .3s;
+}
+
+.navbar-cart-icon {
+	width: fit-content;
+	height: fit-content;
+	font-size: 1.2rem;
+}

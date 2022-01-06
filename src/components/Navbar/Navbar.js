@@ -1,8 +1,5 @@
-import NewProductNotification from "./NewProductNotification";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import CartButton from "./CartButton/CartButton"
 import "./Navbar.css";
-import Products from "../Shop/Products";
 
 const Navbar = (props) => {
   return (
@@ -23,16 +20,7 @@ const Navbar = (props) => {
       </div>
 
       {/* cart */}
-      <div className="cart-box">
-        <div>
-          <FontAwesomeIcon icon={faShoppingCart} className="navbar-cart-icon" />
-        </div>
-
-        <p>Cart</p>
-        {props.productsInCart.length > 0 && (
-          <NewProductNotification quantity={props.productsInCart.length} />
-        )}
-      </div>
+      <CartButton productsInCart={props.productsInCart}/>
 
       {/* log in / log out */}
       <button className="auth-btn">Log In</button>

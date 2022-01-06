@@ -76,18 +76,6 @@
 	opacity: 1;
 }
 
-.cart-box {
-	position: relative;
-	display: flex;
-	align-items: center;
-	gap: .2rem;
-	margin-right: 2rem;
-}
-
-.navbar-cart-icon {
-	font-size: 1.2rem;
-}
-
 .auth-btn {
 	padding: .6rem 1rem;
 
