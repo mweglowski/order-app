@@ -4,6 +4,8 @@
   box-sizing: border-box;
   font-family: "Readex Pro", sans-serif;
   color: white;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -15,4 +17,9 @@ body {
   margin: 0;
   background-color: #222e38;
   scroll-behavior: smooth;
+}
+
+hr {
+	border: 2px solid #273541;
+	border-radius: 12px;
 }

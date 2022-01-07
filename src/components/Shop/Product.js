@@ -53,7 +53,7 @@ const Product = (props) => {
         />
       )}
       <div className="product-icon-box">
-        {props.type === "pills" ? (
+        {props.productData.type === "pills" ? (
           <PillSvg className="product-pill-icon" style={pillSvgStyle} />
         ) : (
           <SyrupSvg className="product-syrup-icon" style={syrupSvgStyle} />

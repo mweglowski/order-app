@@ -1,5 +1,35 @@
 .product-in-cart {
-	width: 300px;
-	height: 100px;
-	background-color: blue;
+	display: flex;
+	align-items: center;
+  padding: 1rem;
+	transition: 1s;
+}
+
+.product-in-cart-name {
+	margin: auto auto auto 1em;
+
+	font-size: 1.1em;
+}
+
+.product-in-cart-price {
+	padding: .5rem;
+
+	background-color: #222e38;
+	border-radius: 12px;
+	font-size: 1.2em;
+}
+
+.cart-pill-icon,
+.cart-syrup-icon {
+  width: 40px;
+
+  fill: lightblue;
+}
+
+.cart-pill-icon {
+  transform: rotate(135deg);
+}
+
+.cart-syrup-icon {
+  transform: rotate(45deg);
 }

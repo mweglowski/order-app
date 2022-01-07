@@ -76,22 +76,6 @@
 	opacity: 1;
 }
 
-.auth-btn {
-	padding: .6rem 1rem;
-
-	background-color: rgb(34, 46, 56);
-	border: none;
-	border-radius: 12px;
-	font-size: 1rem;
-	transition: .2s;
-}
-.auth-btn:hover {
-	background-color: rgb(41, 54, 66);
-	color: rgb(6, 181, 224);
-	cursor: pointer;
-}
-
-
 @media screen and (min-width: 1300px) {
 	.nav-links {
 		gap: 130px;

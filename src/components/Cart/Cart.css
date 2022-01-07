@@ -1,10 +1,40 @@
 .cart {
-	width: 500px;
-	height: 500px;
-	position: fixed;
-	top: 5rem;
-	right: 0;
-	z-index: 21;
+  width: 500px;
+  position: fixed;
+  top: 5rem;
+  right: 1rem;
+  padding: 1rem;
+  z-index: 21;
 
-	background-color: #2e3e4b;
+  background-color: #2e3e4b;
+  transition: 1s;
+}
+
+.products-in-cart {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem .5rem;
+  gap: .5rem;
+}
+
+.cart-sum-box {
+  display: flex;
+  align-items: center;
+  padding: .5rem;
+}
+
+.cart-sum-box-title {
+  margin-right: auto;
+
+  font-size: 1.3em;
+}
+
+.cart-sum-box-sum {
+  font-size: 1.3em;
+}
+
+.cart-control-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
 }

@@ -1,12 +1,13 @@
 import Products from "./Products";
 import Card from "./../UI/Card";
+import SectionTitle from "./../UI/SectionTitle"
 
-import classes from "./Shop.module.css";
+import "./Shop.css";
 
 const Shop = (props) => {
   return (
-    <Card id="shop" className={classes.shop}>
-      <div className={classes["section-title"]}>Our Products</div>
+    <Card id="shop" className="shop">
+      <SectionTitle name="Our Products" />
       <hr />
       <Products
         products={props.products}

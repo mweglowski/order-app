@@ -49,7 +49,7 @@ const App = () => {
 
   const showCart = () => {
     isCartDisplayed ? setIsCartDisplayed(false) : setIsCartDisplayed(true);
-    console.log('cart shown')
+    console.log("cart shown");
   };
 
   return (
