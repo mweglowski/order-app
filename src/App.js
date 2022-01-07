@@ -9,6 +9,7 @@ import "./App.css";
 
 const App = () => {
   const [productsInCart, setProductsInCart] = useState([]);
+  const [isCartDisplayed, setIsCartDisplayed] = useState(false);
   const products = [
     {
       name: "Vitamine C",
@@ -42,18 +43,21 @@ const App = () => {
 
   const addProductToCart = (newProduct) => {
     setProductsInCart((prevState) => {
-      console.log(prevState);
       return [newProduct, ...prevState];
     });
-    console.log("New item added to the cart!\n", newProduct);
+  };
+
+  const showCart = () => {
+    isCartDisplayed ? setIsCartDisplayed(false) : setIsCartDisplayed(true);
+    console.log('cart shown')
   };
 
   return (
     <>
       {/* Temporary, moving componenets */}
-      <Cart productsInCart={productsInCart} />
+      {isCartDisplayed && <Cart productsInCart={productsInCart} />}
 
-      <Navbar productsInCart={productsInCart} />
+      <Navbar productsInCart={productsInCart} onCartButtonClick={showCart} />
       <div className="content">
         <LandingBox />
         <Shop products={products} onProductAddToCart={addProductToCart} />

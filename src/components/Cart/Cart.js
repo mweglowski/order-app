@@ -5,11 +5,19 @@ import "./Cart.css";
 
 const Cart = (props) => {
   return (
-    <div className="cart">
+    <Card className="cart">
+      <h1>Shopping Cart</h1>
+      <hr />
       {props.productsInCart.map((product) => {
-        return <ProductInCart key={Math.random()} />;
+        return (
+          <ProductInCart
+            key={Math.random()}
+            name={product.name}
+            price={product.price}
+          />
+        );
       })}
-    </div>
+    </Card>
   );
 };
 

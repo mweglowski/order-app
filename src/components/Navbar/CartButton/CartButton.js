@@ -6,7 +6,7 @@ import "./CartButton.css";
 
 const CartButton = (props) => {
   return (
-    <div className="cart-box">
+    <div className="cart-box" onClick={props.onCartButtonClick}>
       <div>
         <FontAwesomeIcon icon={faShoppingCart} className="navbar-cart-icon" />
       </div>
