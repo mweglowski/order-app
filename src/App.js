@@ -47,7 +47,7 @@ const App = () => {
     });
   };
 
-  const showCart = () => {
+  const switchDisplayCart = () => {
     isCartDisplayed ? setIsCartDisplayed(false) : setIsCartDisplayed(true);
     console.log("cart shown");
   };
@@ -55,9 +55,9 @@ const App = () => {
   return (
     <>
       {/* Temporary, moving componenets */}
-      {isCartDisplayed && <Cart productsInCart={productsInCart} />}
+      {isCartDisplayed && <Cart productsInCart={productsInCart} onCartDisplayChange={switchDisplayCart}/>}
 
-      <Navbar productsInCart={productsInCart} onCartButtonClick={showCart} />
+      <Navbar productsInCart={productsInCart} onCartButtonClick={switchDisplayCart} />
       <div className="content">
         <LandingBox />
         <Shop products={products} onProductAddToCart={addProductToCart} />

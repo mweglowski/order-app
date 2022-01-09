@@ -13,6 +13,10 @@ const Cart = (props) => {
     fontSize: "1.3em",
   };
 
+  const hideCart = () => {
+    props.onCartDisplayChange()
+  }
+
   return (
     <Card className="cart">
       <SectionTitle name="Shopping Cart" />
@@ -43,7 +47,7 @@ const Cart = (props) => {
         </div>
       )}
       <div className="cart-control-buttons">
-        <Button className="control-button-hide">Hide</Button>
+        <Button className="control-button-hide" onButtonClick={hideCart}>Hide</Button>
         {sum !== 0 && <Button className="control-button-buy">Buy</Button>}
       </div>
     </Card>
