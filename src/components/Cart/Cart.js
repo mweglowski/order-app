@@ -29,9 +29,8 @@ const Cart = (props) => {
             return (
               <ProductInCart
                 key={Math.random()}
-                type={product.type}
-                name={product.name}
-                price={product.price}
+                product={product}
+                onProductRemove={props.onProductRemove}
               />
             );
           })}

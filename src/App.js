@@ -47,6 +47,19 @@ const App = () => {
     });
   };
 
+  const removeProductFromCart = (product) => {
+    setProductsInCart((prevState) => {
+      let productIndex = 0;
+      for (let i = 0; i < prevState.length; i++) {
+        if (prevState[i].name === product.name) {
+          productIndex = i
+        }
+      }
+      console.log(productIndex)
+      return prevState.slice(0, productIndex).concat(prevState.slice(productIndex + 1))
+    })
+  }
+
   const switchDisplayCart = () => {
     isCartDisplayed ? setIsCartDisplayed(false) : setIsCartDisplayed(true);
     console.log("cart shown");
@@ -55,7 +68,7 @@ const App = () => {
   return (
     <>
       {/* Temporary, moving componenets */}
-      {isCartDisplayed && <Cart productsInCart={productsInCart} onCartDisplayChange={switchDisplayCart}/>}
+      {isCartDisplayed && <Cart productsInCart={productsInCart} onCartDisplayChange={switchDisplayCart} onProductRemove={removeProductFromCart} />}
 
       <Navbar productsInCart={productsInCart} onCartButtonClick={switchDisplayCart} />
       <div className="content">

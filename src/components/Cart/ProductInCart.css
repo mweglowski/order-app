@@ -2,7 +2,8 @@
 	display: flex;
 	align-items: center;
   padding: 1rem;
-	transition: 1s;
+
+	transition: .3s;
 }
 
 .product-in-cart-name {
@@ -32,4 +33,19 @@
 
 .cart-syrup-icon {
   transform: rotate(45deg);
+}
+
+.cart-bin-icon {
+	width: 40px;
+	margin-left: 1em;
+	padding: .25em;
+
+	fill: lightblue;
+	transition: .3s;
+}
+.cart-bin-icon:hover {
+	background-color: coral;
+	border-radius: 12px;
+	fill: white;
+	cursor: pointer;
 }
