@@ -1,5 +1,5 @@
 import CartButton from "./CartButton/CartButton";
-import Button from "../UI/Button"
+import AuthButton from "./AuthButton/AuthButton";
 import "./Navbar.css";
 
 const Navbar = (props) => {
@@ -27,7 +27,11 @@ const Navbar = (props) => {
       />
 
       {/* log in / log out */}
-      <Button className="auth-btn">Log In</Button>
+      <AuthButton
+        isLoggedIn={props.isLoggedIn}
+        onLogIn={props.onLogIn}
+        onLogOut={props.onLogOut}
+      />
     </div>
   );
 };

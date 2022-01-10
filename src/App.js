@@ -8,7 +8,7 @@ import Cart from "./components/Cart/Cart";
 import "./App.css";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [productsInCart, setProductsInCart] = useState([]);
   const [isCartDisplayed, setIsCartDisplayed] = useState(false);
   const products = [
@@ -43,12 +43,22 @@ const App = () => {
   ];
 
   useEffect(() => {
-    const storedUserLoggedInData = localStorage.getItem("isLoggedIn")
+    const storedUserLoggedInData = localStorage.getItem("isLoggedIn");
 
     if (storedUserLoggedInData === "1") {
-      setIsLoggedIn(true)
+      setIsLoggedIn(true);
     }
-  })
+  }, []);
+
+  const loginHandler = () => {
+    localStorage.setItem("isLoggedIn", "1");
+    setIsLoggedIn(true);
+  };
+
+  const logoutHandler = () => {
+    localStorage.removeItem("isLoggedIn", "1");
+    setIsLoggedIn(false);
+  };
 
   const addProductToCart = (newProduct) => {
     setProductsInCart((prevState) => {
@@ -61,12 +71,14 @@ const App = () => {
       let productIndex = 0;
       for (let i = 0; i < prevState.length; i++) {
         if (prevState[i].name === product.name) {
-          productIndex = i
+          productIndex = i;
         }
       }
-      return prevState.slice(0, productIndex).concat(prevState.slice(productIndex + 1))
-    })
-  }
+      return prevState
+        .slice(0, productIndex)
+        .concat(prevState.slice(productIndex + 1));
+    });
+  };
 
   const switchDisplayCart = () => {
     isCartDisplayed ? setIsCartDisplayed(false) : setIsCartDisplayed(true);
@@ -75,9 +87,21 @@ const App = () => {
   return (
     <>
       {/* Temporary, moving componenets */}
-      {isCartDisplayed && <Cart productsInCart={productsInCart} onCartDisplayChange={switchDisplayCart} onProductRemove={removeProductFromCart} />}
+      {isCartDisplayed && (
+        <Cart
+          productsInCart={productsInCart}
+          onCartDisplayChange={switchDisplayCart}
+          onProductRemove={removeProductFromCart}
+        />
+      )}
 
-      <Navbar productsInCart={productsInCart} onCartButtonClick={switchDisplayCart} />
+      <Navbar
+        productsInCart={productsInCart}
+        onCartButtonClick={switchDisplayCart}
+        isLoggedIn={isLoggedIn}
+        onLogIn={loginHandler}
+        onLogOut={logoutHandler}
+      />
       <div className="content">
         <LandingBox />
         <Shop products={products} onProductAddToCart={addProductToCart} />
