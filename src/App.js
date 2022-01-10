@@ -55,14 +55,12 @@ const App = () => {
           productIndex = i
         }
       }
-      console.log(productIndex)
       return prevState.slice(0, productIndex).concat(prevState.slice(productIndex + 1))
     })
   }
 
   const switchDisplayCart = () => {
     isCartDisplayed ? setIsCartDisplayed(false) : setIsCartDisplayed(true);
-    console.log("cart shown");
   };
 
   return (
