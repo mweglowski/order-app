@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 
 import Navbar from "./components/Navbar/Navbar";
 import LandingBox from "./components/LandingBox/LandingBox";
@@ -8,6 +8,7 @@ import Cart from "./components/Cart/Cart";
 import "./App.css";
 
 const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [productsInCart, setProductsInCart] = useState([]);
   const [isCartDisplayed, setIsCartDisplayed] = useState(false);
   const products = [
@@ -40,6 +41,14 @@ const App = () => {
       price: "5.99$",
     },
   ];
+
+  useEffect(() => {
+    const storedUserLoggedInData = localStorage.getItem("isLoggedIn")
+
+    if (storedUserLoggedInData === "1") {
+      setIsLoggedIn(true)
+    }
+  })
 
   const addProductToCart = (newProduct) => {
     setProductsInCart((prevState) => {
