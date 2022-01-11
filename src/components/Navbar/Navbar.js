@@ -31,6 +31,7 @@ const Navbar = (props) => {
         isLoggedIn={props.isLoggedIn}
         onLogIn={props.onLogIn}
         onLogOut={props.onLogOut}
+        onAuthButtonClick={props.onAuthButtonClick}
       />
     </div>
   );

@@ -38,14 +38,14 @@
 .cart-bin-icon {
 	width: 40px;
 	margin-left: 1em;
-	padding: .25em;
+	padding: .4em;
 
 	fill: lightblue;
 	transition: .3s;
 }
 .cart-bin-icon:hover {
-	background-color: coral;
+	background-color: rgb(92, 14, 0);
 	border-radius: 12px;
-	fill: white;
+	fill: rgb(253, 95, 95);
 	cursor: pointer;
 }

@@ -4,11 +4,13 @@ import Navbar from "./components/Navbar/Navbar";
 import LandingBox from "./components/LandingBox/LandingBox";
 import Shop from "./components/Shop/Shop";
 import Cart from "./components/Cart/Cart";
+import AuthBox from "./components/AuthBox/AuthBox";
 
 import "./App.css";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAuthBoxDisplayed, setIsAuthBoxDisplayed] = useState(false);
   const [productsInCart, setProductsInCart] = useState([]);
   const [isCartDisplayed, setIsCartDisplayed] = useState(false);
   const products = [
@@ -84,9 +86,15 @@ const App = () => {
     isCartDisplayed ? setIsCartDisplayed(false) : setIsCartDisplayed(true);
   };
 
+  const switchDisplayAuthBox = () => {
+    isAuthBoxDisplayed
+      ? setIsAuthBoxDisplayed(false)
+      : setIsAuthBoxDisplayed(true);
+  };
+
   return (
     <>
-      {/* Temporary, moving componenets */}
+      {/* TEMPORARY MOVING COMPONENTS */}
       {isCartDisplayed && (
         <Cart
           productsInCart={productsInCart}
@@ -95,15 +103,24 @@ const App = () => {
         />
       )}
 
+      {isAuthBoxDisplayed && <AuthBox />}
+
+      {/* NAVBAR */}
       <Navbar
         productsInCart={productsInCart}
         onCartButtonClick={switchDisplayCart}
+        onAuthButtonClick={switchDisplayAuthBox}
         isLoggedIn={isLoggedIn}
         onLogIn={loginHandler}
         onLogOut={logoutHandler}
       />
+
+      {/* CONTENT */}
       <div className="content">
+        {/* BARGAIN & GALLERY */}
         <LandingBox />
+
+        {/* SHOP */}
         <Shop products={products} onProductAddToCart={addProductToCart} />
       </div>
     </>

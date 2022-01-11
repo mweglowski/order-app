@@ -42,7 +42,7 @@ const Cart = (props) => {
       {props.productsInCart.length > 0 && (
         <div className="cart-sum-box">
           <div className="cart-sum-box-title">Sum:</div>
-          <div className="cart-sum-box-sum">{sum}$</div>
+          <div className="cart-sum-box-sum">{sum.toFixed(2)}$</div>
         </div>
       )}
       <div className="cart-control-buttons">
