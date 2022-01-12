@@ -4,7 +4,7 @@
 	gap: 2em;
 	position: fixed;
 	width: 500px;
-	margin-left: 25%;
+	margin-left:  calc((100vw - 500px) / 2);
 	padding: 2em;
 	z-index: 30;
 
