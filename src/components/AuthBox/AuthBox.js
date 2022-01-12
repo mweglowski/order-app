@@ -4,8 +4,18 @@ import "./AuthBox.css";
 
 const AuthBox = (props) => {
   return (
-    <div className="auth-box">
-      <Card>AuthBox</Card>
+    <div>
+      <Card className="auth-box">
+        <div>Log In to your account.</div>
+        <div className="auth-control">
+          <label className="auth-control-title">E-mail:</label>
+          <input />
+        </div>
+        <div className="auth-control">
+          <label className="auth-control-title">Password:</label>
+          <input />
+        </div>
+      </Card>
     </div>
   );
 };
