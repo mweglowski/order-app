@@ -5,6 +5,7 @@ import LandingBox from "./components/LandingBox/LandingBox";
 import Shop from "./components/Shop/Shop";
 import Cart from "./components/Cart/Cart";
 import AuthBox from "./components/AuthBox/AuthBox";
+import DarkTheme from "./components/UI/DarkTheme";
 
 import "./App.css";
 
@@ -55,11 +56,13 @@ const App = () => {
   const loginHandler = () => {
     localStorage.setItem("isLoggedIn", "1");
     setIsLoggedIn(true);
+    console.log('logged in')
   };
 
   const logoutHandler = () => {
     localStorage.removeItem("isLoggedIn", "1");
     setIsLoggedIn(false);
+    console.log('logged out')
   };
 
   const addProductToCart = (newProduct) => {
@@ -95,6 +98,7 @@ const App = () => {
   return (
     <>
       {/* TEMPORARY MOVING COMPONENTS */}
+      {isCartDisplayed && <DarkTheme />}
       {isCartDisplayed && (
         <Cart
           productsInCart={productsInCart}
@@ -103,7 +107,16 @@ const App = () => {
         />
       )}
 
-      {isAuthBoxDisplayed && <AuthBox />}
+      {isAuthBoxDisplayed && <DarkTheme />}
+      {isAuthBoxDisplayed && (
+        <AuthBox
+          isLoggedIn={isLoggedIn}
+          onLogIn={loginHandler}
+          onLogOut={logoutHandler}
+          displayed={isAuthBoxDisplayed}
+          switchDisplay={switchDisplayAuthBox}
+        />
+      )}
 
       {/* NAVBAR */}
       <Navbar

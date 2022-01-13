@@ -1,0 +1,9 @@
+.dark-theme {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	z-index: 15;
+
+	background-color: black;
+	opacity: .6;
+}

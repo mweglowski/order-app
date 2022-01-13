@@ -6,7 +6,7 @@
 	top: 0;
 	margin: auto;
 	align-items: center;
-	z-index: 20;
+	z-index: 10;
 
 	background-color: rgb(46, 62, 75);
 	box-shadow: 0 0 1rem #1b1b1b;
