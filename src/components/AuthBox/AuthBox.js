@@ -30,16 +30,20 @@ const AuthBox = (props) => {
             </div>
             <div className="auth-control">
               <label className="auth-control-title">Password:</label>
-              <input />
+              <input type="password" />
             </div>
-            <Button onButtonClick={logIn}>Log In</Button>
-            <Button onButtonClick={hideAuthBox}>Back</Button>
+            <div className="auth-box-log-in-controls">
+              <Button onButtonClick={logIn}>Log In</Button>
+              <Button onButtonClick={hideAuthBox}>Back</Button>
+            </div>
           </>
         ) : (
           <>
             <div>Are you sure to log out?</div>
-            <Button onButtonClick={logOut}>Yes</Button>
-            <Button onButtonClick={hideAuthBox}>Cancel</Button>
+            <div className="auth-box-log-out-controls">
+              <Button onButtonClick={logOut}>Log Out</Button>
+              <Button onButtonClick={hideAuthBox}>Cancel</Button>
+            </div>
           </>
         )}
       </Card>
