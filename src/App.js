@@ -61,10 +61,6 @@ const App = () => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(notificationRef.current);
-  }, [productsInCart]);
-
   const loginHandler = () => {
     localStorage.setItem("isLoggedIn", "1");
     setIsLoggedIn(true);
@@ -81,6 +77,8 @@ const App = () => {
     setProductsInCart((prevState) => {
       return [newProduct, ...prevState];
     });
+
+    notificationRef.current.showNotification("Product added to the cart.")
   };
 
   const removeProductFromCart = (product) => {
@@ -95,6 +93,8 @@ const App = () => {
         .slice(0, productIndex)
         .concat(prevState.slice(productIndex + 1));
     });
+
+    notificationRef.current.showNotification("Product removed from the cart.")
   };
 
   const switchDisplayCart = () => {

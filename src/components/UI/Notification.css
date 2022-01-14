@@ -1,5 +1,7 @@
 .notification {
 	position: fixed;
+	left: 40%;
+	top: -50px;
 	display: flex;
 	align-items: center;
 	width: 300px;
@@ -10,4 +12,5 @@
 	background-color: rgb(240, 219, 100);
 	border-radius: 0 0 12px 12px;
 	color: rgb(158, 138, 24);
+	transition: .5s;
 }
