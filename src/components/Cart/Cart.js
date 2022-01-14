@@ -46,7 +46,7 @@ const Cart = (props) => {
         </div>
       )}
       <div className="cart-control-buttons">
-        <Button className="control-button-hide" onButtonClick={hideCart}>Hide</Button>
+        <Button className="control-button-hide" onButtonClick={hideCart}>Back</Button>
         {sum !== 0 && <Button className="control-button-buy">Buy</Button>}
       </div>
     </Card>
