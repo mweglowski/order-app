@@ -9,6 +9,7 @@ import "./Product.css";
 
 const Product = (props) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isDescDisplayed, setIsDescDisplayed] = useState(false);
 
   const mouseEnterHandler = () => {
     setIsHovered(true);
@@ -16,6 +17,10 @@ const Product = (props) => {
 
   const mouseLeaveHandler = () => {
     setIsHovered(false);
+  };
+
+  const descDisplayHandler = () => {
+    isDescDisplayed ? setIsDescDisplayed(false) : setIsDescDisplayed(true);
   };
 
   const hoverBoxTopValue = isHovered ? 0 : "100%";
@@ -43,7 +48,13 @@ const Product = (props) => {
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}
     >
-      <InfoSvg className="product-info-icon" />
+      <div className="product-info-box">
+        <InfoSvg className="product-info-icon" onClick={descDisplayHandler} />
+        {isDescDisplayed && (
+          <div className="product-description">{props.productData.desc}</div>
+        )}
+      </div>
+
       {isHovered && (
         <ProductOnHoverCard
           price={props.price}
@@ -52,7 +63,7 @@ const Product = (props) => {
           onProductAddToCart={props.onProductAddToCart}
         />
       )}
-      <div className="product-icon-box">
+      <div className="product-type-icon-box">
         {props.productData.type === "pills" ? (
           <PillSvg className="product-pill-icon" style={pillSvgStyle} />
         ) : (
@@ -62,7 +73,7 @@ const Product = (props) => {
       <div className="product-name">{props.productData.name}</div>
       <div className="product-price">{props.productData.price}</div>
       <div className="product-amount" style={amountStyle}>
-        {props.amount}
+        {props.productData.amount}
       </div>
     </div>
   );

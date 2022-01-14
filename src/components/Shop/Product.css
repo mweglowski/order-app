@@ -13,23 +13,37 @@
 	box-shadow: 0 0 .5rem #171e25;
 	border-radius: 12px;
 	transition: .5s;
-	overflow: hidden;
 }
 
 /* ICONS */
-.product-info-icon {
+.product-info-box {
 	width: 1.5rem;
 	position: absolute;
 	left: 3%;
 	top: 3%;
 	z-index: 1;
+}
 
+.product-info-icon {
 	fill: lightblue;
 	transition: .3s;
 }
+
 .product-info-icon:hover {
 	fill: rgb(115, 163, 179);
 	cursor: pointer;
+}
+
+.product-description {
+	position: absolute;
+	left: -100%;
+	width: 200px;
+	padding: .5em;
+	
+	background-color: rgb(31, 40, 51);
+	box-shadow: 0 0 .5em #222e38;
+	border-radius: 12px;
+	color: white;
 }
 
 .product-pill-icon {
@@ -46,7 +60,7 @@
 	transform: rotate(45deg);
 }
 
-.product-icon-box {
+.product-type-icon-box {
 	position: relative;
 }
 

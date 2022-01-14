@@ -50,6 +50,13 @@ const App = () => {
       desc: "Good for cough and colds. It also reduce cholesterol levels, which may lower heart disease risk. It helps reduce high blood pressure and protect against blood clots.",
       price: "5.99$",
     },
+    {
+      name: "Chokeberry Syrup",
+      type: "syrup",
+      amount: "500ml",
+      desc: "Helps and protects the heart and blood vessels, reduces swelling and blood sugar levels, and kill cancer cells.",
+      price: "14.99$",
+    },
   ];
 
   // SETTING USER LOGGED IN ON PAGE LOAD
