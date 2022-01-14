@@ -74,14 +74,20 @@ const App = () => {
   };
 
   const addProductToCart = (newProduct) => {
+    notificationRef.current.slideDown("Product added to the cart.")
+
     setProductsInCart((prevState) => {
       return [newProduct, ...prevState];
     });
 
-    notificationRef.current.showNotification("Product added to the cart.")
+    setTimeout(() => {
+      notificationRef.current.slideUp()
+    }, 2000)
   };
 
   const removeProductFromCart = (product) => {
+    notificationRef.current.slideDown("Product removed from the cart.")
+
     setProductsInCart((prevState) => {
       let productIndex = 0;
       for (let i = 0; i < prevState.length; i++) {
@@ -94,7 +100,9 @@ const App = () => {
         .concat(prevState.slice(productIndex + 1));
     });
 
-    notificationRef.current.showNotification("Product removed from the cart.")
+    setTimeout(() => {
+      notificationRef.current.slideUp()
+    }, 2000)
   };
 
   const switchDisplayCart = () => {
