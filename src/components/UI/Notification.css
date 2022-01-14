@@ -1,0 +1,13 @@
+.notification {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	width: 300px;
+	height: 50px;
+	padding-left: 1%;
+	z-index: 30;
+
+	background-color: rgb(240, 219, 100);
+	border-radius: 0 0 12px 12px;
+	color: rgb(158, 138, 24);
+}

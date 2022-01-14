@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 
 import Navbar from "./components/Navbar/Navbar";
 import LandingBox from "./components/LandingBox/LandingBox";
@@ -6,14 +6,21 @@ import Shop from "./components/Shop/Shop";
 import Cart from "./components/Cart/Cart";
 import AuthBox from "./components/AuthBox/AuthBox";
 import DarkTheme from "./components/UI/DarkTheme";
+import Notification from "./components/UI/Notification";
 
 import "./App.css";
 
 const App = () => {
+  // STATE
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAuthBoxDisplayed, setIsAuthBoxDisplayed] = useState(false);
   const [productsInCart, setProductsInCart] = useState([]);
   const [isCartDisplayed, setIsCartDisplayed] = useState(false);
+
+  // REFS
+  const notificationRef = useRef();
+
+  // DATA (PRODUCTS)
   const products = [
     {
       name: "Vitamine C",
@@ -45,6 +52,7 @@ const App = () => {
     },
   ];
 
+  // SETTING USER LOGGED IN ON PAGE LOAD
   useEffect(() => {
     const storedUserLoggedInData = localStorage.getItem("isLoggedIn");
 
@@ -53,16 +61,20 @@ const App = () => {
     }
   }, []);
 
+  useEffect(() => {
+    console.log(notificationRef.current);
+  }, [productsInCart]);
+
   const loginHandler = () => {
     localStorage.setItem("isLoggedIn", "1");
     setIsLoggedIn(true);
-    console.log('logged in')
+    console.log("logged in");
   };
 
   const logoutHandler = () => {
     localStorage.removeItem("isLoggedIn", "1");
     setIsLoggedIn(false);
-    console.log('logged out')
+    console.log("logged out");
   };
 
   const addProductToCart = (newProduct) => {
@@ -98,6 +110,11 @@ const App = () => {
   return (
     <>
       {/* TEMPORARY MOVING COMPONENTS */}
+
+      {/* NOTIFICATION */}
+      <Notification ref={notificationRef} />
+
+      {/* CART */}
       {isCartDisplayed && <DarkTheme />}
       {isCartDisplayed && (
         <Cart
@@ -107,6 +124,7 @@ const App = () => {
         />
       )}
 
+      {/* AUTH BOX */}
       {isAuthBoxDisplayed && <DarkTheme />}
       {isAuthBoxDisplayed && (
         <AuthBox
@@ -117,6 +135,8 @@ const App = () => {
           switchDisplay={switchDisplayAuthBox}
         />
       )}
+
+      {/* STATIC COMPONENTS */}
 
       {/* NAVBAR */}
       <Navbar
