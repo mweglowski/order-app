@@ -1,6 +1,7 @@
 import { React, useState, useEffect, useRef } from "react";
 
 import Navbar from "./components/Navbar/Navbar";
+import Welcome from "./components/Welcome/Welcome"
 import LandingBox from "./components/LandingBox/LandingBox";
 import Shop from "./components/Shop/Shop";
 import Cart from "./components/Cart/Cart";
@@ -163,8 +164,12 @@ const App = () => {
         onLogOut={logoutHandler}
       />
 
+
       {/* CONTENT */}
       <div className="content">
+        {/* WELCOME SECTION */}
+        <Welcome />
+        
         {/* BARGAIN & GALLERY */}
         <LandingBox />
 

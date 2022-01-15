@@ -1,10 +1,10 @@
 import Product from "./Product";
 
-import classes from "./Products.module.css";
+import "./Products.css";
 
 const Products = (props) => {
   return (
-    <div className={classes.products}>
+    <div className="products">
       {props.products.map((product) => {
         return (
           <Product
