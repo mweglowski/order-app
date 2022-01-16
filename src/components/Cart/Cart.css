@@ -8,13 +8,28 @@
 
   background-color: #2e3e4b;
   transition: 1s;
+  animation: slide-left .3s ease-out;
+}
+
+@keyframes slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(30%);
+  }
+  to {
+    opacity: 1; 
+    transform: translateX(0%);
+  }
 }
 
 .products-in-cart {
   display: flex;
   flex-direction: column;
+  max-height: 25rem;
   padding: 1rem .5rem;
   gap: .5rem;
+
+  overflow: auto;
 }
 
 .cart-sum-box {
