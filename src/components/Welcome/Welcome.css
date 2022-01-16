@@ -1,11 +1,63 @@
 .welcome {
+	position: relative;
+	width: 100%;
 	margin: 0 0 5em 0;
 	padding: 0;
 }
 
 .welcome-text {
 	position: absolute;
+	width: 100%;
+
+	background-color: #222e38;
+	border-radius: 12px 12px 60% 10%;
 }
+
+.welcome-text-title {
+	margin: 2.5rem 2.5rem 4rem 2.5rem;
+
+	font-size: 2.7em;
+}
+
+.welcome-text-p1 {
+	position: absolute;
+	top: 60%;
+	left: 20%;
+	padding: 1.3em;
+
+	background-color: #222e38;
+	border-radius: 100px;
+	font-size: 1.9rem;
+}
+
+.welcome-text-animated-word {
+	position: relative;
+
+	color: white;
+}
+
+.welcome-text-animated-word::before {
+	content: "sales";
+	position: absolute;
+	left: 0;
+
+	color: orange;
+	animation: animate 6s ease-in-out infinite;
+}
+
+@keyframes animate {
+	0%, 100% {
+		clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+	}
+	50% {
+		clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+	}
+}
+
+.welcome-text-safe-amount {
+	text-decoration: underline orange;
+}
+
 
 .lab-image {
 	width: 100%;
