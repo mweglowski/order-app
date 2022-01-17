@@ -8,6 +8,21 @@
   padding: 0;
 }
 
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #2b3d4b;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3d5468; 
+  border-radius: 15px;
+}
 
 html {
   font-family: sans-serif;

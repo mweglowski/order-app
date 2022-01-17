@@ -3,6 +3,18 @@
 	justify-content: space-around;
 	align-items: center;
 	margin-top: 2rem;
+	
+	animation: slide-down .7s ease-out;
+}
+@keyframes slide-down {
+	from {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 @media screen and (max-width: 1000px) {

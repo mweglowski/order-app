@@ -13,9 +13,20 @@
 	border-radius: 0 0 12px 12px;
 	opacity: .9;
 	transition: .3s;
+	animation: slide-down .5s ease-out;
 }
 .navbar:hover {
 	opacity: 1;
+}
+@keyframes slide-down {
+	from {
+		opacity: 0;
+		transform: translateY(-30%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0%);
+	}
 }
 
 .title-box {

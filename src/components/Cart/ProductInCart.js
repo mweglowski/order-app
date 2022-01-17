@@ -13,6 +13,7 @@ const ProductInCart = (props) => {
   const mouseEnterHandler = (event) => {
     Array.from(event.target.children).map(child => {
       child.style.opacity = .3
+      return null;
     })
     setIsHovered(true)
   };
@@ -20,6 +21,7 @@ const ProductInCart = (props) => {
   const mouseLeaveHandler = (event) => {
     Array.from(event.target.children).map(child => {
       child.style.opacity = 1
+      return null;
     })
     setIsHovered(false)
   };
@@ -38,7 +40,7 @@ const ProductInCart = (props) => {
         )}
         <div className="product-in-cart-name">{props.product.name}</div>
         <div className="product-in-cart-price">{props.product.price}</div>
-        {isHovered && <BinSvg className="cart-bin-icon" onClick={removeProduct} />}
+        {isHovered && <BinSvg className="product-in-cart-bin-icon" onClick={removeProduct} />}
       </Card>
     </div>
   );

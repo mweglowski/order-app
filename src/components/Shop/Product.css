@@ -13,7 +13,18 @@
 	box-shadow: 0 0 .5rem #171e25;
 	border-radius: 12px;
 	transition: .5s;
+	/* animation: slide-up .5s ease-out; */
 }
+/* @keyframes slide-up {
+	from {
+		opacity: 0;
+		transform: translateY(30%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0%);
+	}
+} */
 
 /* ICONS */
 .product-info-box {

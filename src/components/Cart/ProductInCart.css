@@ -35,17 +35,28 @@
   transform: rotate(45deg);
 }
 
-.cart-bin-icon {
+.product-in-cart-bin-icon {
 	width: 40px;
 	margin-left: 1em;
 	padding: .4em;
 
 	fill: lightblue;
 	transition: .3s;
+	animation: slide-left .3s ease-out;
 }
-.cart-bin-icon:hover {
+.product-in-cart-bin-icon:hover {
 	background-color: rgb(92, 14, 0);
 	border-radius: 12px;
 	fill: rgb(253, 95, 95);
 	cursor: pointer;
+}
+@keyframes slide-left {
+	from {
+		opacity: 0;
+		transform: translateX(30%);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0%);
+	}
 }
