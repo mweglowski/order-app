@@ -6,14 +6,6 @@ import "./Notification.css";
 const Notification = React.forwardRef((props, ref) => {
   const elementRef = createRef();
 
-  // const showNotification = (message) => {
-  //   elementRef.current.textContent = message;
-  //   elementRef.current.style.top = "0px";
-  //   setTimeout(() => {
-  //     elementRef.current.style.top = "-50px";
-  //   }, 2000);
-  // };
-
   const slideUp = () => {
     elementRef.current.style.top = "-50px";
   };

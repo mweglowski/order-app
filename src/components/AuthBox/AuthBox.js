@@ -1,27 +1,34 @@
+import React, { useContext } from "react";
+
 import Card from "../UI/Card";
 import Button from "../UI/Button";
+
+import AuthContext from "../../store/AuthContext";
 
 import "./AuthBox.css";
 
 const AuthBox = (props) => {
-  const hideAuthBox = () => {
+  // AUTH CONTEXT
+  const authCtx = useContext(AuthContext);
+
+  const switchAuthBoxDisplay = () => {
     props.switchDisplay();
   };
 
-  const logIn = () => {
-    hideAuthBox();
-    props.onLogIn();
+  const loginHandler = () => {
+    switchAuthBoxDisplay();
+    authCtx.onLogin();
   };
 
-  const logOut = () => {
-    hideAuthBox();
-    props.onLogOut();
+  const logoutHandler = () => {
+    switchAuthBoxDisplay();
+    authCtx.onLogout();
   };
 
   return (
     <div>
       <Card className="auth-box">
-        {!props.isLoggedIn ? (
+        {!authCtx.isLoggedIn ? (
           <>
             <div>Log In to your account.</div>
             <div className="auth-control">
@@ -33,16 +40,16 @@ const AuthBox = (props) => {
               <input type="password" />
             </div>
             <div className="auth-box-log-in-controls">
-              <Button onButtonClick={logIn}>Log In</Button>
-              <Button onButtonClick={hideAuthBox}>Back</Button>
+              <Button onButtonClick={loginHandler}>Log In</Button>
+              <Button onButtonClick={switchAuthBoxDisplay}>Back</Button>
             </div>
           </>
         ) : (
           <>
             <div>Are you sure to log out?</div>
             <div className="auth-box-log-out-controls">
-              <Button onButtonClick={logOut}>Log Out</Button>
-              <Button onButtonClick={hideAuthBox}>Cancel</Button>
+              <Button onButtonClick={logoutHandler}>Log Out</Button>
+              <Button onButtonClick={switchAuthBoxDisplay}>Cancel</Button>
             </div>
           </>
         )}

@@ -28,9 +28,9 @@ const Navbar = (props) => {
 
       {/* log in / log out */}
       <AuthButton
-        isLoggedIn={props.isLoggedIn}
-        onLogIn={props.onLogIn}
-        onLogOut={props.onLogOut}
+        // isLoggedIn={props.isLoggedIn}
+        // onLogIn={props.onLogIn}
+        // onLogOut={props.onLogOut}
         onAuthButtonClick={props.onAuthButtonClick}
       />
     </div>
