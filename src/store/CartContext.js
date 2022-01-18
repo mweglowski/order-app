@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const CartContext = React.createContext({
   productsInCart: [],
@@ -11,6 +11,7 @@ export default CartContext;
 export const CartContextProvider = (props) => {
   const [productsInCart, setProductsInCart] = useState([]);
 
+  
   const addProductHandler = (newProduct) => {
     setProductsInCart((prevState) => {
       return [newProduct, ...prevState];

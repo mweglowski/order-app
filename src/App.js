@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 
 import Navbar from "./components/Navbar/Navbar";
 import Welcome from "./components/Welcome/Welcome";
@@ -12,6 +12,8 @@ import Notification from "./components/UI/Notification";
 import { AuthContextProvider } from "./store/AuthContext";
 import { CartContextProvider } from "./store/CartContext";
 
+import CartContext from "./store/CartContext";
+
 import "./App.css";
 
 const App = () => {
@@ -19,6 +21,9 @@ const App = () => {
   const [isAuthBoxDisplayed, setIsAuthBoxDisplayed] = useState(false);
   // const [productsInCart, setProductsInCart] = useState([]);
   const [isCartDisplayed, setIsCartDisplayed] = useState(false);
+
+  // CONTEXT
+  const cartCtx = useContext(CartContext);
 
   // REFS
   const notificationRef = useRef();

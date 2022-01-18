@@ -15,7 +15,7 @@ const AuthButton = (props) => {
 
   return (
     <Button className="auth-btn" onButtonClick={showAuthButton}>
-      {authCtx.isLoggedIn ? "Log In" : "Log Out"}
+      {authCtx.isLoggedIn ? "Log Out" : "Log In"}
     </Button>
   );
 };
