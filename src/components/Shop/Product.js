@@ -60,7 +60,6 @@ const Product = (props) => {
           price={props.price}
           top={hoverBoxTopValue}
           productData={props.productData}
-          onProductAddToCart={props.onProductAddToCart}
         />
       )}
       <div className="product-type-icon-box">

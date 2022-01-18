@@ -1,8 +1,11 @@
-import { React, useRef } from "react";
+import { React, useRef, useContext } from "react";
+
+import CartContext from "../../store/CartContext";
 
 import "./AddToCartButton.css";
 
 const AddToCartButton = (props) => {
+  const cartCtx = useContext(CartContext)
 	const buttonRef = useRef()
 
 	const addProductToCart = (event) => {
@@ -16,7 +19,7 @@ const AddToCartButton = (props) => {
       buttonRef.current.textContent = "✔ Success";
     }, 1000);
     setTimeout(() => {
-      props.onProductAddToCart(props.productData)
+      cartCtx.onAddProduct(props.productData)
     }, 2000)
   };
 

@@ -1,14 +1,17 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 
 import Card from "../UI/Card";
 import { ReactComponent as PillSvg } from "../../images/pill.svg";
 import { ReactComponent as SyrupSvg } from "../../images/syrup.svg";
 import { ReactComponent as BinSvg } from "../../images/bin.svg";
 
+import CartContext from "../../store/CartContext";
+
 import "./ProductInCart.css";
 
 const ProductInCart = (props) => {
   const [isHovered, setIsHovered] = useState(false)
+  const cartCtx = useContext(CartContext);
 
   const mouseEnterHandler = (event) => {
     Array.from(event.target.children).map(child => {
@@ -27,7 +30,7 @@ const ProductInCart = (props) => {
   };
 
   const removeProduct = () => {
-    props.onProductRemove(props.product)
+    cartCtx.onRemoveProduct(props.product)
   }
 
   return (

@@ -11,7 +11,6 @@ const Shop = (props) => {
       <hr />
       <Products
         products={props.products}
-        onProductAddToCart={props.onProductAddToCart}
       />
     </Card>
   );

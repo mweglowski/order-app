@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 
 import AddToCartButton from "./AddToCartButton";
 import { ReactComponent as CartSvg } from "../../images/cart.svg";
@@ -12,7 +12,6 @@ const ProductOnHoverCard = (props) => {
       <div className="product-on-hover-card-price">{props.price}</div>
       <AddToCartButton
         productData={props.productData}
-        onProductAddToCart={props.onProductAddToCart}
       />
     </div>
   );

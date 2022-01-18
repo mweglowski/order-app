@@ -1,11 +1,17 @@
+import React, { useContext } from "react";
+
 import ProductInCart from "./ProductInCart";
 import Card from "../UI/Card";
 import SectionTitle from "../UI/SectionTitle";
 import Button from "../UI/Button";
 
+import CartContext from "../../store/CartContext";
+
 import "./Cart.css";
 
 const Cart = (props) => {
+  const cartCtx = useContext(CartContext);
+
   let sum = 0;
 
   const noProductsNotificationStyle = {
@@ -14,23 +20,22 @@ const Cart = (props) => {
   };
 
   const hideCart = () => {
-    props.onCartDisplayChange()
-  }
+    props.onCartDisplayChange();
+  };
 
   return (
     <Card className="cart">
       <SectionTitle name="Shopping Cart" />
       <hr />
-      {props.productsInCart.length > 0 ? (
+      {cartCtx.productsInCart.length > 0 ? (
         <div className="products-in-cart">
-          {props.productsInCart.map((product) => {
+          {cartCtx.productsInCart.map((product) => {
             sum += parseFloat(product.price);
 
             return (
               <ProductInCart
                 key={Math.random()}
                 product={product}
-                onProductRemove={props.onProductRemove}
               />
             );
           })}
@@ -39,14 +44,16 @@ const Cart = (props) => {
         <div style={noProductsNotificationStyle}>No products found.</div>
       )}
       <hr />
-      {props.productsInCart.length > 0 && (
+      {cartCtx.productsInCart.length > 0 && (
         <div className="cart-sum-box">
           <div className="cart-sum-box-title">Sum:</div>
           <div className="cart-sum-box-sum">{sum.toFixed(2)}$</div>
         </div>
       )}
       <div className="cart-control-buttons">
-        <Button className="control-button-hide" onButtonClick={hideCart}>Back</Button>
+        <Button className="control-button-hide" onButtonClick={hideCart}>
+          Back
+        </Button>
         {sum !== 0 && <Button className="control-button-buy">Buy</Button>}
       </div>
     </Card>

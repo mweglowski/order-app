@@ -10,18 +10,15 @@ import DarkTheme from "./components/UI/DarkTheme";
 import Notification from "./components/UI/Notification";
 
 import { AuthContextProvider } from "./store/AuthContext";
+import { CartContextProvider } from "./store/CartContext";
 
 import "./App.css";
 
 const App = () => {
   // STATE
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAuthBoxDisplayed, setIsAuthBoxDisplayed] = useState(false);
-  const [productsInCart, setProductsInCart] = useState([]);
+  // const [productsInCart, setProductsInCart] = useState([]);
   const [isCartDisplayed, setIsCartDisplayed] = useState(false);
-
-  // AUTH CONTEXT
-  // const authCtx = useContext(AuthProvider)
 
   // REFS
   const notificationRef = useRef();
@@ -65,59 +62,6 @@ const App = () => {
     },
   ];
 
-  // SETTING USER LOGGED IN ON PAGE LOAD
-  // useEffect(() => {
-  //   const storedUserLoggedInData = localStorage.getItem("isLoggedIn");
-
-  //   if (storedUserLoggedInData === "1") {
-  //     setIsLoggedIn(true);
-  //   }
-  // }, []);
-
-  // const loginHandler = () => {
-  //   localStorage.setItem("isLoggedIn", "1");
-  //   setIsLoggedIn(true);
-  //   console.log("logged in");
-  // };
-
-  // const logoutHandler = () => {
-  //   localStorage.removeItem("isLoggedIn", "1");
-  //   setIsLoggedIn(false);
-  //   console.log("logged out");
-  // };
-
-  const addProductToCart = (newProduct) => {
-    notificationRef.current.slideDown("Product added to the cart.");
-
-    setProductsInCart((prevState) => {
-      return [newProduct, ...prevState];
-    });
-
-    setTimeout(() => {
-      notificationRef.current.slideUp();
-    }, 2000);
-  };
-
-  const removeProductFromCart = (product) => {
-    notificationRef.current.slideDown("Product removed from the cart.");
-
-    setProductsInCart((prevState) => {
-      let productIndex = 0;
-      for (let i = 0; i < prevState.length; i++) {
-        if (prevState[i].name === product.name) {
-          productIndex = i;
-        }
-      }
-      return prevState
-        .slice(0, productIndex)
-        .concat(prevState.slice(productIndex + 1));
-    });
-
-    setTimeout(() => {
-      notificationRef.current.slideUp();
-    }, 2000);
-  };
-
   const switchDisplayCart = () => {
     isCartDisplayed ? setIsCartDisplayed(false) : setIsCartDisplayed(true);
   };
@@ -131,56 +75,45 @@ const App = () => {
   return (
     <>
       <AuthContextProvider>
-        {/* TEMPORARY MOVING COMPONENTS */}
+        <CartContextProvider>
+          {/* TEMPORARY MOVING COMPONENTS */}
 
-        {/* NOTIFICATION */}
-        <Notification ref={notificationRef} />
+          {/* NOTIFICATION */}
+          <Notification ref={notificationRef} />
 
-        {/* CART */}
-        {isCartDisplayed && <DarkTheme />}
-        {isCartDisplayed && (
-          <Cart
-            productsInCart={productsInCart}
-            onCartDisplayChange={switchDisplayCart}
-            onProductRemove={removeProductFromCart}
+          {/* CART */}
+          {isCartDisplayed && <DarkTheme />}
+          {isCartDisplayed && <Cart onCartDisplayChange={switchDisplayCart} />}
+
+          {/* AUTH BOX */}
+          {isAuthBoxDisplayed && <DarkTheme />}
+          {isAuthBoxDisplayed && (
+            <AuthBox
+              displayed={isAuthBoxDisplayed}
+              switchDisplay={switchDisplayAuthBox}
+            />
+          )}
+
+          {/* STATIC COMPONENTS */}
+
+          {/* NAVBAR */}
+          <Navbar
+            onCartButtonClick={switchDisplayCart}
+            onAuthButtonClick={switchDisplayAuthBox}
           />
-        )}
 
-        {/* AUTH BOX */}
-        {isAuthBoxDisplayed && <DarkTheme />}
-        {isAuthBoxDisplayed && (
-          <AuthBox
-            // isLoggedIn={isLoggedIn}
-            // onLogIn={loginHandler}
-            // onLogOut={logoutHandler}
-            displayed={isAuthBoxDisplayed}
-            switchDisplay={switchDisplayAuthBox}
-          />
-        )}
+          {/* CONTENT */}
+          <div className="content">
+            {/* WELCOME SECTION */}
+            <Welcome />
 
-        {/* STATIC COMPONENTS */}
+            {/* BARGAIN & GALLERY */}
+            <LandingBox />
 
-        {/* NAVBAR */}
-        <Navbar
-          productsInCart={productsInCart}
-          onCartButtonClick={switchDisplayCart}
-          onAuthButtonClick={switchDisplayAuthBox}
-          // isLoggedIn={isLoggedIn}
-          // onLogIn={loginHandler}
-          // onLogOut={logoutHandler}
-        />
-
-        {/* CONTENT */}
-        <div className="content">
-          {/* WELCOME SECTION */}
-          <Welcome />
-
-          {/* BARGAIN & GALLERY */}
-          <LandingBox />
-
-          {/* SHOP */}
-          <Shop products={products} onProductAddToCart={addProductToCart} />
-        </div>
+            {/* SHOP */}
+            <Shop products={products} />
+          </div>
+        </CartContextProvider>
       </AuthContextProvider>
     </>
   );

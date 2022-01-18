@@ -10,7 +10,6 @@ const Products = (props) => {
           <Product
             key={Math.random()}
             productData={product}
-            onProductAddToCart={props.onProductAddToCart}
           />
         );
       })}
